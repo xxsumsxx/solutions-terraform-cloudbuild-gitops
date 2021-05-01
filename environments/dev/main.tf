@@ -4,6 +4,14 @@
 // Using pessimistic version locking for all versions
 // ----------------------------------------------------------------------------
 terraform {
+  required_providers {
+    kubernetes = {
+      version = "~>1.11.0"
+    helm = {
+      version = "~>1.3.0"
+    }
+    }
+  }
   required_version = ">= 0.12.0, < 0.15"
 }
 
@@ -36,7 +44,7 @@ data "google_client_config" "default" {
 }
 
 provider "kubernetes" {
-  version          = "~>1.11.0"
+
   load_config_file = false
 
   host                   = "https://${module.cluster.cluster_endpoint}"
@@ -45,7 +53,7 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  version = "~>1.3.0"
+
   debug   = true
 
   kubernetes {
