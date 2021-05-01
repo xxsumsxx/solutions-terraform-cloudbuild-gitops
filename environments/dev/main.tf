@@ -13,7 +13,6 @@ terraform {
 provider "google" {
   project = var.gcp_project
   credentials = "${var.path}/secrets.json"
-  version = ">= 3.46.0"
   default = "devops-system"
 }
 
