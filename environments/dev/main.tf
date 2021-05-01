@@ -18,7 +18,6 @@ provider "google" {
 
 provider "google-beta" {
   project = var.gcp_project
-  version = ">= 3.46.0"
 }
 
 provider "random" {
@@ -26,15 +25,12 @@ provider "random" {
 }
 
 provider "local" {
-  version = ">= 1.2.0"
 }
 
 provider "null" {
-  version = ">= 2.1.0"
 }
 
 provider "template" {
-  version = ">= 2.1.0"
 }
 
 data "google_client_config" "default" {
