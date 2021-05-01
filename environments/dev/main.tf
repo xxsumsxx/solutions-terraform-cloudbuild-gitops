@@ -83,7 +83,6 @@ locals {
   # provide backwards compatibility with the deprecated zone variable
   location       = var.zone != "" ? var.zone : var.cluster_location
   external_vault = var.vault_url != "" ? true : false
-  "env" = "prod"
 }
 
 // ----------------------------------------------------------------------------
