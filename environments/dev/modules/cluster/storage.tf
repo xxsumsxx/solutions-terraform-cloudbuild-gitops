@@ -8,7 +8,7 @@ resource "google_storage_bucket" "log_bucket" {
   count = var.enable_log_storage ? 1 : 0
 
   provider = google
-  name     = "logs-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name     = "logs-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   location = var.bucket_location
 
   force_destroy = var.force_destroy
@@ -18,7 +18,7 @@ resource "google_storage_bucket" "report_bucket" {
   count = var.enable_report_storage ? 1 : 0
 
   provider = google
-  name     = "reports-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name     = "reports-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   location = var.bucket_location
 
   force_destroy = var.force_destroy
@@ -28,7 +28,7 @@ resource "google_storage_bucket" "repository_bucket" {
   count = var.enable_repository_storage ? 1 : 0
 
   provider = google
-  name     = "repository-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name     = "repository-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   location = var.bucket_location
 
   force_destroy = var.force_destroy

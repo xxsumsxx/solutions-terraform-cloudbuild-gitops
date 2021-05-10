@@ -27,7 +27,7 @@ resource "google_kms_key_ring" "vault_keyring" {
   count = var.external_vault ? 0 : 1
 
   provider   = google
-  name       = "keyring-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name       = "keyring-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   location   = "global"
   depends_on = [google_project_service.cloudkms_api]
 }
@@ -36,7 +36,7 @@ resource "google_kms_crypto_key" "vault_crypto_key" {
   count = var.external_vault ? 0 : 1
 
   provider        = google
-  name            = "crypto-key-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name            = "crypto-key-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   key_ring        = google_kms_key_ring.vault_keyring[0].self_link
   rotation_period = "100000s"
   depends_on      = [google_project_service.cloudkms_api]
@@ -51,7 +51,7 @@ resource "google_storage_bucket" "vault_bucket" {
   count = var.external_vault ? 0 : 1
 
   provider      = google
-  name          = "vault-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name          = "vault-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   location      = var.bucket_location
   force_destroy = var.force_destroy
 }

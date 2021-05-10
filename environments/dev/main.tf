@@ -22,6 +22,7 @@ terraform {
 // ----------------------------------------------------------------------------
 provider "google" {
   project = var.gcp_project
+  credentials = "${var.path}/secrets.json"
 }
 
 provider "google-beta" {

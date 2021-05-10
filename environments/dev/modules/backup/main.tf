@@ -8,7 +8,7 @@ resource "google_storage_bucket" "backup_bucket" {
   count = var.enable_backup ? 1 : 0
 
   provider = google
-  name     = "backup-${var.cluster_name}-${var.cluster_id}-jenkins-x-312308"
+  name     = "backup-${var.cluster_name}-${var.cluster_id}-${var.gcp_project}"
   location = var.bucket_location
 
   force_destroy = var.force_destroy
