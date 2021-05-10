@@ -1,1 +1,1 @@
-gcp_project="PROJECT_ID"
+gcp_project="devops-system"
