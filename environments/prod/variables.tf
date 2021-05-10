@@ -13,4 +13,4 @@
 # limitations under the License.
 
 
-variable "project" {}
+variable "gcp_project" {}

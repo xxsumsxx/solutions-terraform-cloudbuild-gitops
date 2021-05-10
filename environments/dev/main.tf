@@ -22,8 +22,6 @@ terraform {
 // ----------------------------------------------------------------------------
 provider "google" {
   project = var.gcp_project
-  credentials = "${var.path}/secrets.json"
-  default = "devops-system"
 }
 
 provider "google-beta" {
